@@ -8,15 +8,7 @@ const {ScanCommand} = require('@aws-sdk/lib-dynamodb')
 // por exemplo ligar o servidor.
 const app = express();
 
-app.get('/', (request, response) => {
-    return response.json([{
-        name: 'levy',
-        cpf: '088.754.745-54'},
-       { name: 'Amanda',
-        cpf: '222.754.999-00'}]);
-})
-
-app.get('/db', async (request, response) => {
+app.get('/', async (request, response) => {
         const req = await documentClient.send(
             new ScanCommand ({
             TableName: 'user',
